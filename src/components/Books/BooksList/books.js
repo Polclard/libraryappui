@@ -50,18 +50,28 @@ class Books extends React.Component {
                         </div>
                     </div>
                 </div>
-                <ReactPaginate previousLabel={"back"}
-                               nextLabel={"next"}
-                               breakLabel={<a href="/#">...</a>}
-                               breakClassName={"break-me"}
-                               pageClassName={"ml-1"}
-                               pageCount={pageCount}
-                               marginPagesDisplayed={2}
-                               pageRangeDisplayed={5}
-                               onPageChange={this.handlePageClick}
-                               containerClassName={"pagination m-4 justify-content-center"}
-                               activeClassName={"active"}/>
+                <div className={"d-flex justify-content-center mt-5"}>
+                    <ReactPaginate previousLabel={'Back'}
+                                   nextLabel={"Next"}
+                                   breakLabel={<a href="/#">...</a>}
+                                   pageCount={pageCount}
+                                   marginPagesDisplayed={2}
+                                   pageRangeDisplayed={5}
+                                   onPageChange={this.handlePageClick}
+                                   breakClassName={'page-item'}
+                                   breakLinkClassName={'page-link'}
+                                   containerClassName={'pagination'}
+                                   pageClassName={'page-item'}
+                                   pageLinkClassName={'page-link'}
+                                   previousClassName={'page-item'}
+                                   previousLinkClassName={'page-link'}
+                                   nextClassName={'page-item'}
+                                   nextLinkClassName={'page-link'}
+                                   activeClassName={'active'}/>
+
+                </div>
             </div>
+
         )
     }
 
@@ -77,7 +87,8 @@ class Books extends React.Component {
         // console.log(offset, nextPageOffset)
         return this.props.books.map((term, index) => {
             return (
-                <BookTerm key={index} term={term} onDelete={this.props.onDelete} onEdit={this.props.onEdit} onRent={this.props.onRent}/>
+                <BookTerm key={index} term={term} onDelete={this.props.onDelete} onEdit={this.props.onEdit}
+                          onRent={this.props.onRent}/>
             );
         }).filter((book, index) => {
             return index >= offset && index < nextPageOffset;
