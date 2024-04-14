@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
-import {Link, Navigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import BookTerm from "../../BookTerm/bookTerm";
 import 'bootstrap/dist/css/bootstrap.css'
 
