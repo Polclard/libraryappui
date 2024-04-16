@@ -45,6 +45,14 @@ const LibraryService = {
     //         "password": password
     //     });
     // },
+    addAuthor: (name, surname, countryId) => {
+        console.log(name, surname, countryId)
+        return axios.post("/authors/addAuthor", {
+            "name": name,
+            "surname": surname,
+            "countryId" : countryId
+        });
+    },
 }
 
 export default LibraryService;

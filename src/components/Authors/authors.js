@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const authors = (props) => {
     return (
@@ -29,6 +30,13 @@ const authors = (props) => {
                         })}
                         </tbody>
                     </table>
+                    <div className="col mb-3">
+                        <div className="row">
+                            <div className="col-sm-12 col-md-12">
+                                <Link className={"btn btn-block btn-dark"} to={"/authors/addAuthor"}>Add new author</Link>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

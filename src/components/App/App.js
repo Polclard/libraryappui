@@ -10,6 +10,7 @@ import BookEdit from "../Books/BooksEdit/bookEdit";
 import Books from "../Books/BooksList/books";
 import BookAdd from "../Books/BooksAdd/bookAdd";
 import Categories from "../Categories/categories";
+import AuthorAdd from "../Authors/AuthorsAdd/authorAdd";
 
 class App extends Component {
     constructor(props) {
@@ -82,6 +83,15 @@ class App extends Component {
                                        {
                                            <Categories
                                                categories = {this.state.categories}
+                                           />
+                                       }
+                            />
+                            <Route path="/authors/addAuthor"
+                                   element=
+                                       {
+                                           <AuthorAdd
+                                               onAddAuthor={this.addAuthor}
+                                               countries={this.state.countries}
                                            />
                                        }
                             />
@@ -185,6 +195,13 @@ class App extends Component {
             .then(() => {
                 this.loadBooks();
             });
+    }
+
+    addAuthor = (name, surname, countryId) =>{
+        LibraryService.addAuthor(name, surname, countryId)
+            .then(() => {
+                this.loadAuthors();
+            })
     }
 
 
